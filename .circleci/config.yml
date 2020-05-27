@@ -5,6 +5,6 @@ jobs:
     steps:
       - checkout
       - run: mkdir ~/zap1
-      - run: docker run -t owasp/zap2docker-weekly zap-baseline.py -t https://staging.rently.com -r ~/zap1/testreport.html
-      - store_artifacts:
-         path: ~/zap1/testreport.html
+      - run: docker run -t owasp/zap2docker-weekly zap-baseline.py -t https://staging.rently.com 
+#       - store_artifacts:
+#          path: ~/zap1/testreport.html
