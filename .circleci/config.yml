@@ -4,8 +4,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: mkdir /zap
-      - run: docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-baseline.py -t https://www.example.com -g gen.conf -r /zap/testreport.html
-      - run: cp /zap/testreport.html /tmp/testreport.html
+      - run: mkdir ~/zap1
+      - run: docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-baseline.py -t https://fork.com -r ~/zap1/testreport.html
       - store_artifacts:
-         path: /tmp/testreport.html
+         path: ~/zap1/testreport.html
