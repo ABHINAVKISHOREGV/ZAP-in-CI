@@ -8,4 +8,4 @@ jobs:
       - run: docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-baseline.py -t https://www.example.com -g gen.conf -r /zap/testreport.html
       - run: cp /zap/testreport.html /tmp/testreport.html
       - store_artifacts:
-        path: /tmp/testreport.html
+         path: /tmp/testreport.html
