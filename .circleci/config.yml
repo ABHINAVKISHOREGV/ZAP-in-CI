@@ -5,7 +5,7 @@ jobs:
     working_directory: /tmp/artifacts
     steps:
       - checkout
-      - run: mkdir -p /tmp/artifacts 
+#       - run: mkdir -p /tmp/artifacts 
       - run: docker run -it owasp/zap2docker-weekly zap.sh -cmd -quickurl https://example.com -quickout /tmp/artifacts/testreport.xml
       - run: ls /tmp/artifacts
       - store_artifacts:
