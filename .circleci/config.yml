@@ -4,6 +4,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker run -it owasp/zap2docker-weekly zap.sh -cmd -quickurl https://staging.rently.com -quickprogress | tee /tmp/testreport.txt 
+      - run: docker run -it owasp/zap2docker-weekly zap.sh -cmd -quickurl https://staging.rently.com -quickprogress -r /tmp/testreport.xml
+      - run: cat /tml/testreport.xml > /tmp/testreport.txt
       - store_artifacts:
-         path: /tmp/testreport.txt
+         path: /tmp/
