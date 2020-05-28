@@ -2,10 +2,9 @@ version: 2.1
 jobs:
   build:
     machine: true
-    working_directory: /tmp
+    working_directory: /tmp/artifacts
     steps:
       - checkout
-      - run: mkdir -p /tmp
       - run: docker run -it -v $(pwd):/zap/ owasp/zap2docker-weekly zap.sh -cmd -quickurl https://example.com -quickout testreport.xml
       - store_artifacts:
-         path: /tmp/
+         path: /tmp/artifacts
