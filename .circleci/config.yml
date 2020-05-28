@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     machine: true
-    working_directory: /tmp
+    working_directory: /tmp/artifacts
     steps:
       - checkout
       - run: mkdir -p /tmp/artifacts 
