@@ -4,8 +4,8 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: mkdir artifacts
+      - run: mkdir /tmp/artifacts
       - run: docker run -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com
-#       - run: docker run -t -v /tmp/artifacts:/zap/wrk/:rw owasp/zap2docker-weekly zap.sh -cmd -quickurl https://example.com -quickout "testreport.xml"
+      - run: docker run -v /tmp/artifacts/:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com  -r testreport.html
       - store_artifacts:
-         path: /tmp/artifacts/
+         path: /tmp/artifacts
