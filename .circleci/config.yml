@@ -4,8 +4,8 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: mkdir /tmp/artifacts
-      - run: docker run -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com
-      - run: docker run -v /tmp/artifacts/:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com  -r testreport.html
+      - run: mkdir /tmp/artefacts
+      #- run: docker run -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com
+      - run: sh -c 'docker run -v /tmp/artifacts/:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com' > /tmp/artefacts/testreport.html
       - store_artifacts:
-         path: /tmp/artifacts
+         path: /tmp/artefacts
