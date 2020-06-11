@@ -6,6 +6,6 @@ jobs:
       - checkout
       - run: mkdir /tmp/artefacts
       #- run: docker run -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com
-      - run: sh -c 'docker run -v /tmp/artifacts/:/zap/wrk/:rw -u root -t owasp/zap2docker-stable zap-full-scan.py -t http://testphp.vulnweb.com/ -r /tmp/artefacts/testreport.html' > /tmp/artefacts/testreport.txt
+      - run: docker run -v /tmp/artifacts/:/zap/wrk/:rw -u root -t owasp/zap2docker-stable zap-full-scan.py -t http://testphp.vulnweb.com/ -r /tmp/artefacts/testreport.html
       - store_artifacts:
          path: /tmp/artefacts
