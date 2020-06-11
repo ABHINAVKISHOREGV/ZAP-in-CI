@@ -8,4 +8,4 @@ jobs:
       #- run: docker run -t owasp/zap2docker-stable zap-full-scan.py -t https://www.example.com
       - run: docker run -v /tmp/artifacts/:/zap/wrk/:rw -u root -t owasp/zap2docker-stable zap-baseline.py -t http://testphp.vulnweb.com/ -r testreport.html
       - store_artifacts:
-         path: /tmp/artefacts
+         path: /tmp/artefacts/testreport.html
